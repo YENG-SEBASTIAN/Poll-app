@@ -1,0 +1,40 @@
+{% extends "poll/base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Create Poll{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">This Poll has ended</h2>
+            </div>
+                
+                {% csrf_token %}
+                <div class="panel-body">
+                <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <h4>Do you want to open the poll again?</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                   
+                    </div>
+
+                    <div class="row">
+                        <hr />
+                        <div class="col-lg-4">
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                            <button type="submit" class="btn btn-success">Yes</button>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
