@@ -7,7 +7,11 @@
     <div class="col-lg-8 col-lg-offset-2">
         <div class="panel panel-default">
             <div class="panel-heading">
+            {% if polls %}
                 <h3 class="panel-title">Your Polls</h3>
+            {% else %}
+                <h3 class="panel-title">You have no Polls yet</h3>
+            {% endif %}
             </div>
                 
             <ul class="list-group">
@@ -16,12 +20,18 @@
                     <strong>{{ poll.question }}</strong>
                     <span class="pull-right">
                         <a href="{% url 'vote' poll.id %}" class="btn btn-info btn-xs">Vote</a> &nbsp;
+                        {% if poll.isOpen %}
+                        
                         <a href="{% url 'resultsView' poll.id %}" class="btn btn-default btn-xs">View Results</a> &nbsp;
+                        <a href="{% url 'endPoll' poll.id %}" class="btn btn-danger btn-xs">End Poll</a>
+                        {% else %}
+                        <a href="{% url 'resultsView' poll.id %}" class="btn btn-default btn-xs">View Results</a> &nbsp;
+                        <a href="{% url 'sendOpenPollCode' poll.id %}" class="btn btn-success btn-xs">Open Poll Again</a>
+                        {% endif %}
                     </span>
                 </li>
                 {% endfor %}
             </ul>
-
         </div>
     </div>
 </div>

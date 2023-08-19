@@ -12,6 +12,7 @@ class Poll(models.Model):
     option_one_count = models.IntegerField(default=0)
     option_two_count = models.IntegerField(default=0)
     option_three_count = models.IntegerField(default=0)
+    isOpen = models.BooleanField(default=True)
     verification_code = models.CharField(max_length=6, null=True, blank=True)
     verification_code_expires = models.DateTimeField(blank=True, null=True)
 

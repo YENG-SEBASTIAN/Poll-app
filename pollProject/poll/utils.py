@@ -5,7 +5,7 @@ from django.conf import settings
 class Utils:
     @staticmethod
     def send_message(details):
-        subject = "One Time Pin to activate session"
+        subject = details['subject']
         from_email = settings.EMAIL_HOST_USER
         to = details['to_email']
         reply_to = settings.EMAIL_HOST_USER
